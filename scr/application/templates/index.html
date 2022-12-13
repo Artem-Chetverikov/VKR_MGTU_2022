@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta charset=utf-8">
+      <title>Разводящая</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="theme-color" content="#0099FF">
+      <style type="text/css">
+         p {
+         font-size: 130%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: #333366;
+         align: center;
+         }
+         button {
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         appearance: none;
+         border: 0;
+         border-radius: 5px;
+         background: #4676D7;
+         color: #fff;
+         padding: 20px 10px;
+         font-size: 20px;
+         height:80px;
+         width:600px;
+         }
+         button:hover {
+         background: #1d49aa;
+         }
+         button:focus {
+         outline: none;
+         box-shadow: 0 0 0 4px #cbd6ee;
+         }
+      </style>
+   </head>
+   <body>
+      <div align = "right">
+         </br>
+         </br>
+         Образовательный центр МГТУ им. Н.Э. Баумана</br></br>
+         Выполнил: Четвериков А.В.
+         </br>
+      </div>
+      <table align="center">
+         <tr>
+            <td align="center" width = 600px>
+               <p>
+                  </br>
+                  Добро пожаловать!</br></br>
+                  Вашему вниманию представляется простое web-приложение 
+                  для демонстрации возможностей машинного обучения</br>
+                  В этом приложении продемонстрировано использование предванительно обученных моделей 
+				  на основе линейной регрессии,
+                  а также модели на основе нейтосети.
+               </p>
+            </td>
+         </tr>
+      </table>
+      <div>
+         <p align="center">
+            </br>
+            Выберите тип расчета:
+            </br>
+         </p>
+      </div>
+      <table align="center" >
+         <tr align="right" width = 500px>
+            <td><a  href="{{ url_for('calculation_1') }}">
+               <button>Рекомендация соотношения матрица-наполнитель</br>(на основе нейросети)</button>
+               </a>
+            </td>
+         </tr>
+         <tr align="right" width = 500px>
+            <td><a  href="{{ url_for('calculation_2') }}">
+               <button>Предсказание прочности при растяжении</br>(на основе линейной регрессии)</button>
+               </a>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>

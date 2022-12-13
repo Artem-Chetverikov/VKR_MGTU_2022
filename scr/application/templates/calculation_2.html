@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta charset=utf-8">
+      <title>Рассчет_2</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="theme-color" content="#0099FF">
+      <style type="text/css">
+         p {
+         font-size: 130%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: #333366;
+         align: center;
+         }
+         div_1 {
+         font-size: 100%; 
+         font-family: Verdana, Arial, Helvetica, sans-serif; 
+         color: #333366;
+         background-color:#ffb6c1;
+         width:500px;
+         margin:5;
+         align: center;
+         }
+         button {
+         appearance: none;
+         -webkit-appearance: none;
+         -moz-appearance: none;
+         appearance: none;
+         border: 0;
+         border-radius: 5px;
+         background: #4676D7;
+         color: #fff;
+         padding: 8px 16px;
+         font-size: 16px;
+         }
+         button:hover {
+         background: #1d49aa;
+         }
+         button:focus {
+         outline: none;
+         box-shadow: 0 0 0 4px #cbd6ee;
+         }
+      </style>
+   </head>
+   <body>
+      <a  href="{{ url_for('index') }}">
+      <button>Назад</button>
+      </a>
+      <div align = "right">
+         Образовательный центр МГТУ им. Н.Э. Баумана</br></br>
+         Выполнил: Четвериков А.В.
+         </br>
+      </div>
+      <div>
+         <p align="center">
+            </br>
+            Предсказание прочности при растяжении <br> моделью линейной регрессии
+            </br>
+         </p>
+      </div>
+      <div_1>
+         <form action="" method="post" >
+            <fieldset style= "line-height: 2; width: 550px; margin: auto">
+               <!-- <legend>Введите данные</legend> -->
+               <table align="center" width="500px">
+                  <td align="center"><ins><b>Введите данные:</b></ins></td>
+               </table>
+               <table align="center" bgcolor= "#ffb6c1" border="0" bordercolor="#0b4700" cellpadding="2" cellspacing="0" width="500px">
+                  <tr>
+                     <td  align="right"><label for="param1">Cоотношение матрица-наполнитель: </label></td>
+                     <td><input id="id_001" name="param1" type="text" placeholder="(0.1...10)" value = {{value[0]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param2">Плотность : </label></td>
+                     <td><input id="id_002" name="param2" type="text" placeholder="кг/м3 (1700...2200)" value = {{value[1]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param3">Модуль упругости: </label></td>
+                     <td><input id="id_003" name="param3" type="text" placeholder="ГПа (1...1700)" value = {{value[2]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param4">Количество отвердителя: </label></td>
+                     <td><input id="id_004" name="param4" type="text" placeholder="% (1...200)" value = {{value[3]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param5">Содержание эпоксидных групп: </label></td>
+                     <td><input id="id_005" name="param5" type="text" placeholder="% (15...30)" value = {{value[4]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param6">Температура вспышки: </label></td>
+                     <td><input id="id_006" name="param6" type="text" placeholder="С_о (150...500)" value = {{value[5]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param7">Поверхностная плотность: </label></td>
+                     <td><input id="id_007" name="param7" type="text" placeholder="г/м2 (0.1...1300)" value = {{value[6]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param8">Модуль упругости при растяжении: </label></td>
+                     <td><input id="id_008" name="param8" type="text" placeholder="ГПа (1...100)" value = {{value[7]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param9">Потребление смолы: </label></td>
+                     <td><input id="id_009" name="param9" type="text" placeholder="г/м2 (1...400)" value = {{value[8]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param10">Угол нашивки: </label></td>
+                     <td><input id="id_0010" name="param10" type="text" placeholder="град (0...90)" value = {{value[9]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param11">Шаг нашивки: </label></td>
+                     <td><input id="id_0011" name="param11" type="text" placeholder=" (0.1...15)" value = {{value[10]}}></td>
+                  </tr>
+                  <tr>
+                     <td  align="right"><label for="param12">Плотность нашивки: </label></td>
+                     <td><input id="id_0012" name="param12" type="text" placeholder=" (1...100)" value = {{value[11]}}></td>
+                  </tr>
+               </table>
+               <table align="center" width="500px">
+                  <td align="right"><button type="submit">Отправить</button></td>
+               </table>
+            </fieldset>
+         </form>
+      </div_1>
+      <br>
+	  
+      {% if alert %}
+      <script> alert( "Заполните все поля.  Вводите только целые или дробные числа (разделитеть - точка)" ) </script>
+      {% endif %}
+	  
+      {% if message%}
+      <table align="center" bgcolor= "#db7093" border="0" cellpadding="8" cellspacing="0" width="800px">
+         <td style= "font-size: 120%; font-family: Verdana, Arial, Helvetica, sans-serif; color: #333366; background-color:#ffb6c1;	margin:5; align: center;" ><b>Прочность при растяжении:</b>   {{ message }}  МПа</td>
+      </table>
+      {% endif%}
+	  
+      <br>
+      <br>
+      <br>
+   </body>
+</html>
